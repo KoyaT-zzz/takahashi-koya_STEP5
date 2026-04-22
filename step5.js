@@ -29,6 +29,23 @@ const cell2 = row.insertCell(1);
 cell1.textContent = text;
 cell2.textContent = "削除";
 
+//削除ボタン
+const deleteBtn = document.createElement("button");
+deleteBtn.textContent = "削除";
+
+//===== 設問5：行削除 + カウント減少 =====
+deleteBtn.addEventListener("click", function () {
+    table.deleteRow(row.rowIndex);
+    addCount--;
+
+    if (addCount < 3) {
+        showBtn.style.display = "inline";
+    }
+});
+
+cell2.textContent = "";
+cell2.appendChild(deleteBtn);
+
 addCount++;
 
 });
